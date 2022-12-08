@@ -1,0 +1,17 @@
+devDependencies
+  - ava@8
+  - nodemon@1
+  - proxyquire@1
+  - sinon@3
+  - standard@10
+  - supertest@3
+
+Dependencies
+  - chalk@2
+  - debug@3
+  - express@2
+  - express-asyncify@1
+  - express-jwt@5
+  - express-jwt-permissions@1
+  - jsonwebtoken@7
+  - car-shop-db@"file:../car-shop-db"
