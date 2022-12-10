@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "private": true,
   "scripts": {
+    "start": "npm run clean || npm run build && npm run serve",
     "build": "tsc",
     "serve": "node build",
     "clean": "rm -rf build/* && rm -d build/"
