@@ -2,17 +2,19 @@
 import express from 'express'
 import config from './config/server.json'
 import bodyParser from 'body-parser'
+import api from './api'
 
-const app = express()
+const app = express(),
+  debug = require('debug')('car-shop:api')
 
 // Middleware
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use('/api', api)
 
-app.get('/cars', (_req, res) => {
-  res.json({ cars: ['Renault', 'Chevrolet', 'Toyota'] })
-})
-
+// Handle error on express
 app.use((err, _req, res, _next) => {
+  debug(`Error: ${err.message}`)
+
   if (err.message.match(/not found/)) {
     return res.status(404).send({ error: err.message })
   }
